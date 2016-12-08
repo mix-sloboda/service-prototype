@@ -20,16 +20,17 @@ object Main extends App {
 
   import system.dispatcher
 
-  if(system.settings.config.getStringList("akka.cluster.roles").contains("prototype-master")) {
-    Cluster(system).registerOnMemberUp {
+  if(system.settings.config.getString("directual.service.role") == "master") {
       system.log.info("PROTOTYPE MASTER")
+
+      SpringCtxExt(system).actorOf("worker-supervisor")
+
       val serviceMaster = SpringCtxExt(system).actorOf("serviceMaster")
 
       system.log.info("Master node is ready.")
 
       system.scheduler.schedule(10.seconds, 5.seconds, serviceMaster, "Bob")
-    }
-  } else  {
+  } else {
     SpringCtxExt(system).actorOf("worker-supervisor")
   }
 

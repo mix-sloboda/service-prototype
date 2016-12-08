@@ -2,11 +2,7 @@ package com.directual.service.actors.master
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
 import akka.cluster.routing.{ClusterRouterGroup, ClusterRouterGroupSettings, ClusterRouterPool, ClusterRouterPoolSettings}
-import akka.routing.{BroadcastPool, ConsistentHashingGroup, FromConfig, RoundRobinPool}
-import com.directual.extension.spring.SpringCtxExt
-import com.directual.service.Service
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.ApplicationContext
+import akka.routing._
 import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
@@ -27,17 +23,17 @@ class ServiceMaster extends Actor with ActorLogging{
 
   override def receive: Receive = {
     case msg:String if msg.contains("Dummy") ⇒
-      log.info("Remote answer " + msg)
+      log.info("Remote answer {} from {}", msg , sender().path)
     case msg:String ⇒
-      log.info("Receved " + msg)
+      log.info("Receved Init Work " + msg)
       remoteRouter ! msg
   }
 
   def createWorkerRouter(): ActorRef = {
-    context.actorOf(ClusterRouterGroup(ConsistentHashingGroup(Nil), ClusterRouterGroupSettings(
+    context.actorOf(ClusterRouterGroup(RoundRobinGroup(Nil), ClusterRouterGroupSettings(
       totalInstances = 100, routeesPaths = List("/user/worker-supervisor"),
-      allowLocalRoutees = false,
-      useRole = Some("prototype-worker"))).props(),
+      allowLocalRoutees = true,
+      useRole = Some(config.getString("service.name")))).props(),
       name = "worker-router"
     )
   }

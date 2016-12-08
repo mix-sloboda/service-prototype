@@ -23,11 +23,12 @@ class Worker extends Actor with ActorLogging {
     service = SpringCtxExt(context.system).springContext.getBean(classOf[Service])
   }
 
+  val logMsg = s"Worker(${self.path}) {}"
 
   override def receive: Receive = {
     case msg ⇒
-      log.info(s"Worker ${self.path.name} " + msg)
+      log.info(logMsg, msg)
       log.info(s"Sender " + sender().path)
-      sender() ! s"Worker${self.path.name} returns ${service.addDummy(msg.toString)}"
+      sender() ! logMsg + s" returns ${service.addDummy(msg.toString)}"
   }
 }
