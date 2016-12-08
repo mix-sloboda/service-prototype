@@ -16,7 +16,4 @@ import org.springframework.context.annotation.{Bean, ComponentScan, Configuratio
 )
 class ServiceConfiguration extends ActorSystemConfigurationInjector {
 
-  @Bean
-  override def config(): Config =
-    ConfigFactory.load()
 }

@@ -3,8 +3,6 @@ package com.directual.service.actors.worker
 import akka.actor.{Actor, ActorLogging}
 import com.directual.extension.spring.SpringCtxExt
 import com.directual.service.Service
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 

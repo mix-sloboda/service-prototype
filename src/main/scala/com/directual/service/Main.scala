@@ -2,21 +2,18 @@ package com.directual.service
 
 import akka.actor.ActorSystem
 import akka.cluster.Cluster
-import com.directual.extension.spring.{SpringCtxExt}
+import com.directual.extension.spring.SpringCtxExt
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import scala.concurrent.Await
 import concurrent.duration._
-import akka.pattern._
-import com.directual.service.spring.ServiceConfiguration
-
-import scala.util.{Failure, Success}
+import com.typesafe.config.ConfigFactory
 
 object Main extends App {
 
-  val ctx = new AnnotationConfigApplicationContext(classOf[ServiceConfiguration])
+  val config = ConfigFactory.load()
 
-  implicit val system = ctx.getBean(classOf[ActorSystem])
+  implicit val system = ActorSystem("directual", config)
 
   import system.dispatcher
 
