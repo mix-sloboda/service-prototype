@@ -1,7 +1,5 @@
 package com.directual.service.spring
 
-import com.directual.extension.spring.config.ActorSystemConfigurationInjector
-import com.typesafe.config.{Config, ConfigFactory}
 import org.springframework.context.annotation.{Bean, ComponentScan, Configuration}
 
 /**
@@ -14,6 +12,6 @@ import org.springframework.context.annotation.{Bean, ComponentScan, Configuratio
     "com.directual.service"
   )
 )
-class ServiceConfiguration extends ActorSystemConfigurationInjector {
+class ServiceConfiguration  {
 
 }
