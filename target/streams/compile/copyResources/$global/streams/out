@@ -1,0 +1,3 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/ekzeb/dev/github.com/directual-service-prototype/src/main/resources/master.conf,/Users/ekzeb/dev/github.com/directual-service-prototype/target/scala-2.11/classes/master.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/ekzeb/dev/github.com/directual-service-prototype/src/main/resources/worker.conf,/Users/ekzeb/dev/github.com/directual-service-prototype/target/scala-2.11/classes/worker.conf)[0m
