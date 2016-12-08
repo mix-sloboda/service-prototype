@@ -1087,9 +1087,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.11!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.jboss.interceptor#jboss-interceptor-api;1.1!jboss-interceptor-api.jar
-[debug] :: resolution report :: resolve 660ms :: artifacts dl 21ms
+[debug] :: resolution report :: resolve 1718ms :: artifacts dl 46ms
 [debug] 	report for com.directual#service$sbt_2.11;1.0 default produced in /Users/ekzeb/dev/github.com/directual-service-prototype/target/resolution-cache/reports/com.directual-service$sbt_2.11-default.xml
-[debug] 	resolve done (660ms resolve - 21ms download)
+[debug] 	resolve done (1718ms resolve - 46ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: com.directual#service$sources_2.11;1.0
 [debug] 	confs: [default]
@@ -2002,6 +2002,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#tracking;0.13.11!tracking.jar(src)
 [debug] 	[NOT REQUIRED] javax.inject#javax.inject;1!javax.inject.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#control;0.13.11!control.jar(src)
-[debug] :: resolution report :: resolve 217ms :: artifacts dl 26ms
+[debug] :: resolution report :: resolve 271ms :: artifacts dl 28ms
 [debug] 	report for com.directual#service$sources_2.11;1.0 default produced in /Users/ekzeb/dev/github.com/directual-service-prototype/target/resolution-cache/reports/com.directual-service$sources_2.11-default.xml
-[debug] 	resolve done (217ms resolve - 26ms download)
+[debug] 	resolve done (271ms resolve - 28ms download)

@@ -1,4 +1,4 @@
 # service-prototype
-just dummy service example 
+just spring-extension dummy service example 
 
 to start 
