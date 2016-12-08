@@ -16,3 +16,4 @@ libraryDependencies ++= Seq(
 )
 
 mainClass in assembly := Some(s"${organization.value}.${name.value}.Main")
+assemblyJarName in assembly := s"${name.value}-${version.value}.jar"
