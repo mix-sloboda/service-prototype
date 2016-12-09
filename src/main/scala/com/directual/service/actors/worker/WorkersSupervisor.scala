@@ -15,14 +15,13 @@ class WorkersSupervisor extends Actor with ActorLogging {
 
   import context._
 
-  def workerProps = SpringCtxExt(system).props("worker")
+  val workerProps = SpringCtxExt(system).props("worker")
 
   var workers = {
     Router(RoundRobinRoutingLogic(), Vector.fill(5) {
       ActorRefRoutee(watch(actorOf(workerProps)))
     })
   }
-
 
   log.info("WorkerSupervisor CREATED " + self.path.name)
 
@@ -35,3 +34,4 @@ class WorkersSupervisor extends Actor with ActorLogging {
       workers = workers.addRoutee(watch(actorOf(workerProps)))
   }
 }
+
